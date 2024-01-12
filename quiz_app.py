@@ -26,10 +26,7 @@ def main():
             theQuiz.spanish_words = list(words_dictionary.keys())[1:10]
             theQuiz._words_dictionary = words_dictionary
             random.shuffle(theQuiz.spanish_words)
-            # print(theQuiz.french_words)
             st.session_state['file_loaded'] = True
-            # st.session_state['words_dictionary'] = words_dictionary
-            # st.session_state['french_words'] = french_words
             st.session_state['theQuiz'] = theQuiz
     else:
         words_dictionary = st.session_state['theQuiz']._words_dictionary
@@ -38,8 +35,6 @@ def main():
     if words_dictionary and len(words_dictionary) > 0:
         if questions_asked < 10:
             questions_asked = quiz_student(st, theQuiz)
-            # questions_asked = show_screen(st,words_dictionary, theQuiz.french_words, questions_asked,theQuiz)
-            # st.session_state['questions_asked'] = questions_asked
         else:
             st.write("Quiz Completed: 10 questions asked.")
     else:
